@@ -1,0 +1,36 @@
+import User from "../models/userModel.js";
+
+//Actuan como intermediario entre cliente y la logica de la aplicacion, reciben solicitudes, las procesa y responde
+//Estos controladores incluyen a los servicios.
+//CRUD
+
+//Como sabe el front que datos necesita ingresar, segun el schema del back?
+//cuando me llega el req.body, porque coinciden?
+// A no ser que primero sepa cual es la base de datos, y luego armo el front.
+
+//Todo lo q sea req y resp es parte del controlador, el resto es service (crear instancia, buscar en la base
+// guardar en la base)
+//En otros lenguajes el service y el controladdor estan separados, aca con express esta medio junto.
+// pero podemos separarlo.
+
+export const createUser = async (req, resp) => {
+  try {
+    //Tomamos los datos enviamos por el post. llegan x body
+    const userData = new User(req.body);
+
+    //Validaciones
+    //Destructuramos
+
+    const { email } = userData;
+    const userExists = await User.findOne({ email });
+    if (userExists) {
+      return resp.status(400).json({ message: "Usuario con " + email + "ya existe" });
+    }
+
+    //Guardamos el usario en la bd
+    await userData.save();
+    resp.status(201).json({ message: "Usuario Creado" });
+  } catch (error) {
+    return resp.status(500).json({ message: "Internal server error", error });
+  }
+};
