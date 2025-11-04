@@ -1,6 +1,6 @@
 import mongoose, { model, Schema } from "mongoose";
 
-export const rarityEnum = ["Comun", "Poco Comun", "Raro", "Legendario", "Mitico"];
+export const rarityEnum = ["Comun", "Poco comun", "Raro", "Legendario", "Mitico"];
 const primeraMayus = (str) => str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
 
 const pokemonSchema = new Schema(

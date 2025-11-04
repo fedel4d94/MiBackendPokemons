@@ -9,7 +9,7 @@ import { handleError } from "../utils/handleError.js";
 export const createPokemon = async (req, res) => {
   try {
     const pokemon = await createPokemonService(req.body);
-    return res.status(201).json({ message: `Pokemon ${response.name} creado! `, pokemon: pokemon });
+    return res.status(201).json({ message: `Pokemon ${pokemon.name} creado! `, pokemon: pokemon });
   } catch (error) {
     handleError(res, error);
   }

@@ -21,7 +21,7 @@ Qué podés hacer:
   habilidades: String, // Libre, puede ser cualquier String [4-50] caracteres
   nivel: Number,       // de 1 a 1000
   peso: Number,        // de 1 a 5000
-  rarity: String,      // debe ser uno de ["Comun", "Poco Comun", "Raro", "Legendario", "Mitico"]
+  rarity: String,      // debe ser uno de ["Comun", "Poco comun", "Raro", "Legendario", "Mitico"]
 }
 ```
 
@@ -130,3 +130,113 @@ La mayoría de los endpoints requieren autenticación mediante JWT. Para acceder
 2. Incluye el token en el header de las peticiones:
 3. Header -> Bearer -> Bearer Token
 4. Ingresa tu token obtenido en el login para realizar las proximas peticiones
+
+
+# Ejemplos de datos MOCK para endpoints POST
+
+## 1. Crear Usuario (POST /api/user/create)
+```json
+{
+  "name": "Ash",
+  "lastName": "Ketchum",
+  "email": "ash.ketchum@pokemon.com",
+  "age": 18,
+  "password": "Pikachu.123"
+}
+```
+
+## 1. Login Usuario (POST /api/user/login)
+```json
+{
+  "email": "ash.ketchum@pokemon.com",
+  "password": "Pikachu.123"
+}
+```
+
+## 2. Crear Pokémon (POST /api/pokemon/create)
+```json
+{
+  "name": "Pikachu",
+  "description": "Ratón eléctrico adorable y poderoso",
+  "tipo": "Electrico",
+  "habilidades": "Impactrueno, Cola férrea",
+  "nivel": 25,
+  "peso": 6,
+  "rarity": "Poco comun"
+}
+```
+
+## 3. Crear Tipo de Pokémon (POST /api/tipopokemon/create)
+```json
+{
+  "name": "Electrico",
+  "description": "Tipo especializado en ataques eléctricos y alta velocidad"
+}
+```
+
+### Ejemplos adicionales de Pokémon
+```json
+{
+  "name": "Charizard",
+  "description": "Dragon de fuego muy poderoso",
+  "tipo": "Fuego",
+  "habilidades": "Lanzallamas, Vuelo",
+  "nivel": 36,
+  "peso": 90,
+  "rarity": "Raro"
+}
+```
+
+```json
+{
+  "name": "Mewtwo",
+  "description": "Pokemon legendario creado geneticamente",
+  "tipo": "Psiquico",
+  "habilidades": "Psíquico, Bola sombra",
+  "nivel": 70,
+  "peso": 122,
+  "rarity": "Legendario"
+}
+```
+
+### Ejemplos adicionales de Tipos
+```json
+{
+  "name": "Fuego",
+  "description": "Tipo especializado en ataques de fuego y poder ofensivo"
+}
+```
+
+```json
+{
+  "name": "Agua",
+  "description": "Tipo versátil con buenos ataques y defensa"
+}
+```
+
+### Ejemplos adicionales de Usuarios
+```json
+{
+  "name": "Misty",
+  "lastName": "Waterflower",
+  "email": "misty.gym@pokemon.com",
+  "age": 19,
+  "password": "Starmie123"
+}
+```
+
+```json
+{
+  "name": "Brock",
+  "lastName": "Harrison",
+  "email": "brock.gym@pokemon.com",
+  "age": 21,
+  "password": "Onix123"
+}
+```
+
+Notas:
+- Todos los campos respetan las validaciones definidas en los modelos
+- Las contraseñas cumplen con el requisito de mayúscula, minúscula y número
+- Los tipos de Pokémon deben crearse antes de crear Pokémon que los usen
+- Las rarities solo pueden ser: ["Comun", "Poco comun", "Raro", "Legendario", "Mitico"]
