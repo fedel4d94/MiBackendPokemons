@@ -2,3 +2,4 @@ node_modules
 package-lock.json
 .env
 pasos.md
+src/controllers/userControllerALL.txt
