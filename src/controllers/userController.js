@@ -1,5 +1,11 @@
 import User from "../models/userModel.js";
-import { createUserService, deleteUserService, getUsersService, updateUserService, validateUserService } from "../service/userService.js";
+import {
+  createUserService,
+  deleteUserService,
+  getUsersService,
+  updateUserService,
+  validateUserService,
+} from "../service/userService.js";
 
 //Actuan como intermediario entre cliente y la logica de la aplicacion, reciben solicitudes, las procesa y responde
 //CRUD
@@ -64,7 +70,7 @@ export const validate = async (req, res) => {
     // Deberiamos tomar los datos que nos mandan en el req
     const { email, password } = req.body;
     const result = await validateUserService(email, password);
-    console.log({ result });
+    console.log(result.message);
     return res.status(200).json(result);
   } catch (error) {
     if (error.statusCode === 400) {

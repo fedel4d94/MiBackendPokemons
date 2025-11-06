@@ -83,9 +83,9 @@ PORT=3000
 Ejemplo
 
 PORT = 3000
-MONGODB_URI = mongodb://127.0.0.1:27017/
-UTN_DB = utnBackend
-SECRET = "secret"
+MONGODB_URI = mongodb://localhost/
+UTN_DB = [nombre de base]
+SECRET = "MiSecreto"
 ```
 
 4. Inicia el servidor:
@@ -239,4 +239,5 @@ Notas:
 - Todos los campos respetan las validaciones definidas en los modelos
 - Las contraseñas cumplen con el requisito de mayúscula, minúscula y número
 - Los tipos de Pokémon deben crearse antes de crear Pokémon que los usen
-- Las rarities solo pueden ser: ["Comun", "Poco comun", "Raro", "Legendario", "Mitico"]
+- Las rarities solo pueden ser: ["Comun", "Poco comun", "Raro", 3
+- "Legendario", "Mitico"]

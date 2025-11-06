@@ -4,7 +4,6 @@ export const verifyTokenMiddlaware = (req, resp, next) => {
   try {
     // Leer el token desde el request
     const authHeader = req.headers.authorization;
-    console.log(authHeader);
 
     // Si no hay token o el token empieza con bearer, esta conficion falla
     if (!authHeader || !authHeader.startsWith("Bearer")) {
@@ -19,8 +18,8 @@ export const verifyTokenMiddlaware = (req, resp, next) => {
     // El mismo sistema que firmo el token es quien puede verificar si es valido o no
     const decoded = verifyToken(token);
 
-    //console.log({ decoded });
-    console.log("Acceso Validado.");
+
+    //console.log("Acceso Validado.");
     // Guardamos en el request del usuario el token
     req.user = decoded;
 
